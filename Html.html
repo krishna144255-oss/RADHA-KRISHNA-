@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Radha Krishna Notes Center</title>
+
+<style>
+
+/* =========================
+   BASIC RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fb;
+    color:#222;
+    transition:0.3s;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
+    color:white;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,0.2);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#ffe600;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ffe600;
+}
+
+#darkBtn{
+    border:none;
+    background:white;
+    color:#222;
+    padding:8px 12px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:500px;
+    padding:70px 5%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+    linear-gradient(rgba(60,20,120,0.85),rgba(20,60,150,0.85)),
+    radial-gradient(circle at center,#ffcc70,#c850c0);
+    color:white;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#ffe600;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.hero-btn{
+    display:inline-block;
+    background:#ffe600;
+    color:#222;
+    padding:13px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    transform:scale(1.05);
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-area{
+    padding:30px 5%;
+    text-align:center;
+    background:white;
+}
+
+.search-area h2{
+    margin-bottom:15px;
+}
+
+#searchBox{
+    width:90%;
+    max-width:600px;
+    padding:14px 18px;
+    border:2px solid #ddd;
+    border-radius:30px;
+    outline:none;
+    font-size:16px;
+}
+
+#searchBox:focus{
+    border-color:#6a11cb;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    padding:55px 5%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-size:32px;
+    color:#5d22b8;
+}
+
+.section-title p{
+    margin-top:8px;
+    color:#666;
+}
+
+/* =========================
+   SUBJECT CARDS
+========================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card .icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+    margin-bottom:18px;
+}
+
+.card button{
+    border:none;
+    background:#6a11cb;
+    color:white;
+    padding:10px 18px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.card button:hover{
+    background:#2575fc;
+}
+
+/* =========================
+   NOTES
+========================= */
+
+.notes-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.note{
+    background:white;
+    border-left:5px solid #6a11cb;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.note h3{
+    margin-bottom:10px;
+}
+
+.note p{
+    color:#666;
+    margin-bottom:15px;
+}
+
+.note button{
+    background:#2575fc;
+    border:none;
+    color:white;
+    padding:9px 16px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    background:white;
+    text-align:center;
+}
+
+.about-box{
+    max-width:800px;
+    margin:auto;
+}
+
+.about-box p{
+    line-height:1.8;
+    color:#555;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-box{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.contact-box input,
+.contact-box textarea{
+    width:100%;
+    padding:13px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+}
+
+.contact-box textarea{
+    height:120px;
+    resize:none;
+}
+
+.contact-box button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:8px;
+    background:#6a11cb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#151515;
+    color:white;
+    text-align:center;
+    padding:25px 10px;
+}
+
+footer p{
+    margin:7px;
+}
+
+footer span{
+    color:#ffe600;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:2000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:white;
+    width:100%;
+    max-width:600px;
+    max-height:80vh;
+    overflow:auto;
+    padding:30px;
+    border-radius:15px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:18px;
+    top:12px;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.modal-content h2{
+    color:#6a11cb;
+    margin-bottom:15px;
+}
+
+.modal-content p{
+    line-height:1.8;
+    color:#444;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark{
+    background:#121212;
+    color:white;
+}
+
+body.dark .search-area,
+body.dark .card,
+body.dark .note,
+body.dark .about,
+body.dark .contact-box,
+body.dark .modal-content{
+    background:#1e1e1e;
+    color:white;
+}
+
+body.dark .search-area h2,
+body.dark .section-title h2{
+    color:#b98cff;
+}
+
+body.dark .card p,
+body.dark .note p,
+body.dark .section-title p,
+body.dark .about-box p,
+body.dark .modal-content p{
+    color:#ccc;
+}
+
+body.dark #searchBox,
+body.dark .contact-box input,
+body.dark .contact-box textarea{
+    background:#292929;
+    color:white;
+    border-color:#444;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.menu-btn{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+    header{
+        flex-wrap:wrap;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        padding-top:15px;
+    }
+
+    nav.show{
+        display:flex;
+    }
+
+    nav a{
+        margin:5px 0;
+    }
+
+    .hero{
+        min-height:430px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:40px 5%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo">
+        🌸 <span>Radha Krishna</span> Notes Center
+    </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#notes">Notes</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+
+        <button id="darkBtn" onclick="toggleDarkMode()">
+            🌙 Dark
+        </button>
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            Welcome to
+            <span>Radha Krishna Notes Center</span>
+        </h1>
+
+        <p>
+            📚 BCA, Computer Science, C Programming,
+            Mathematics, MS Word aur bahut saare useful
+            study notes ek hi jagah.
+        </p>
+
+        <a href="#subjects" class="hero-btn">
+            📖 Start Learning
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div class="search-area">
+
+    <h2>🔍 Search Your Notes</h2>
+
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="Search BCA, C Programming, Maths..."
+        onkeyup="searchNotes()"
+    >
+
+</div>
+
+
+<!-- =========================
+     SUBJECTS
+========================= -->
+
+<section id="subjects">
+
+    <div class="section-title">
+
+        <h2>📚 Our Subjects</h2>
+
+        <p>
+            Apne favourite subject ke notes padho.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">💻</div>
+
+            <h3>C Programming</h3>
+
+            <p>
+                C language ke complete notes,
+                programs aur concepts.
+            </p>
+
+            <button onclick="showNotes('C Programming')">
+                View Notes
+            </button>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🖥️</div>
+
+            <h3>Computer Fundamentals</h3>
+
+            <p>
+                Computer fundamentals ke
+                important topics.
+            </p>
+
+            <button onclick="showNotes('Computer Fundamentals')">
+                View Notes
+            </button>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">📐</div>
+
+            <h3>BCA Mathematics</h3>
+
+            <p>
+                Limits, Differentiation,
+                Integration aur Maths.
+            </p>
+
+            <button onclick="showNotes('BCA Mathematics')">
+                View Notes
+            </button>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">📝</div>
+
+            <h3>MS Word</h3>
+
+            <p>
+                MS Word ke complete notes
+                aur important topics.
+            </p>
+
+            <button onclick="showNotes('MS Word')">
+                View Notes
+            </button>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🌐</div>
+
+            <h3>HTML & CSS</h3>
+
+            <p>
+                Website development ke
+                basic aur advanced notes.
+            </p>
+
+            <button onclick="showNotes('HTML & CSS')">
+                View Notes
+            </button>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">📊</div>
+
+            <h3>Management</h3>
+
+            <p>
+                Principles of Management ke
+                important notes.
+            </p>
+
+            <button onclick="showNotes('Management')">
+                View Notes
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     NOTES
+========================= -->
+
+<section id="notes">
+
+    <div class="section-title">
+
+        <h2>📝 Latest Notes</h2>
+
+        <p>
+            Yahan tum apne naye notes add kar sakte ho.
+        </p>
+
+    </div>
+
+
+    <div class="notes-container" id="notesContainer">
+
+        <div class="note">
+
+            <h3>💻 C Programming - Loops</h3>
+
+            <p>
+                For loop, while loop aur do-while loop
+                ke important concepts.
+            </p>
+
+            <button onclick="openNote('C Programming - Loops')">
+                📖 Read Notes
+            </button>
+
+        </div>
+
+
+        <div class="note">
+
+            <h3>🖥️ Computer - Memory</h3>
+
+            <p>
+                Primary memory aur secondary memory
+                ke important points.
+            </p>
+
+            <button onclick="openNote('Computer Memory')">
+                📖 Read Notes
+            </button>
+
+        </div>
+
+
+        <div class="note">
+
+            <h3>📐 BCA Maths - Limits</h3>
+
+            <p>
+                Limits ke formulas aur important
+                concepts.
+            </p>
+
+            <button onclick="openNote('BCA Maths - Limits')">
+                📖 Read Notes
+            </button>
+
+        </div>
+
+
+        <div class="note">
+
+            <h3>📝 MS Word - One Shot</h3>
+
+            <p>
+                MS Word ke important tabs aur
+                features.
+            </p>
+
+            <button onclick="openNote('MS Word One Shot')">
+                📖 Read Notes
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+    <div class="section-title">
+
+        <h2>🌸 About Us</h2>
+
+    </div>
+
+    <div class="about-box">
+
+        <p>
+            <b>Radha Krishna Notes Center</b> ek
+            educational website hai jahan students ko
+            useful study material ek hi jagah mil sakta hai.
+        </p>
+
+        <br>
+
+        <p>
+            Yahan BCA, C Programming, Computer
+            Fundamentals, Mathematics, MS Word,
+            HTML & CSS aur Management jaise subjects
+            ke notes provide kiye ja sakte hain.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+    <div class="section-title">
+
+        <h2>📞 Contact Us</h2>
+
+        <p>
+            Koi question ya suggestion hai?
+        </p>
+
+    </div>
+
+
+    <div class="contact-box">
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+        >
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Your Email"
+        >
+
+        <textarea
+            id="message"
+            placeholder="Write your message..."
+        ></textarea>
+
+        <button onclick="sendMessage()">
+            📩 Send Message
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        🌸 <span>Radha Krishna Notes Center</span>
+    </p>
+
+    <p>
+        © 2026 All Rights Reserved
+    </p>
+
+    <p>
+        📚 Learn • Practice • Succeed
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div class="modal" id="noteModal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">
+            &times;
+        </span>
+
+        <h2 id="modalTitle">
+            Notes
+        </h2>
+
+        <p id="modalText">
+            Notes content
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+function toggleMenu(){
+
+    const navbar = document.getElementById("navbar");
+
+    navbar.classList.toggle("show");
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+function toggleDarkMode(){
+
+    document.body.classList.toggle("dark");
+
+    const button = document.getElementById("darkBtn");
+
+    if(document.body.classList.contains("dark")){
+
+        button.innerHTML = "☀️ Light";
+
+        localStorage.setItem("darkMode","on");
+
+    }else{
+
+        button.innerHTML = "🌙 Dark";
+
+        localStorage.setItem("darkMode","off");
+
+    }
+
+}
+
+
+/* =========================
+   LOAD DARK MODE
+========================= */
+
+window.onload = function(){
+
+    if(localStorage.getItem("darkMode") === "on"){
+
+        document.body.classList.add("dark");
+
+        document.getElementById("darkBtn").innerHTML =
+        "☀️ Light";
+
+    }
+
+};
+
+
+/* =========================
+   SEARCH NOTES
+========================= */
+
+function searchNotes(){
+
+    const search =
+    document.getElementById("searchBox")
+    .value
+    .toLowerCase();
+
+    const notes =
+    document.querySelectorAll(".note");
+
+    notes.forEach(function(note){
+
+        const text =
+        note.innerText.toLowerCase();
+
+        if(text.includes(search)){
+
+            note.style.display = "block";
+
+        }else{
+
+            note.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   SUBJECT NOTES
+========================= */
+
+function showNotes(subject){
+
+    alert(
+        "📚 " + subject +
+        " ke notes yahan available honge.\n\n" +
+        "Tum baad mein apni PDF ya notes ka content yahan add kar sakte ho."
+    );
+
+}
+
+
+/* =========================
+   OPEN NOTE
+========================= */
+
+function openNote(noteName){
+
+    const modal =
+    document.getElementById("noteModal");
+
+    const title =
+    document.getElementById("modalTitle");
+
+    const text =
+    document.getElementById("modalText");
+
+
+    title.innerHTML =
+    "📖 " + noteName;
+
+
+    if(noteName === "C Programming - Loops"){
+
+        text.innerHTML = `
+        <b>For Loop:</b><br><br>
+
+        For loop ka use kisi statement ko
+        repeatedly execute karne ke liye hota hai.
+
+        <br><br>
+
+        <b>Example:</b><br>
+
+        for(int i=1; i<=10; i++)<br>
+        {<br>
+        &nbsp;&nbsp;printf("%d",i);<br>
+        }
+
+        <br><br>
+
+        Is tarah tum apne complete notes
+        yahan add kar sakte ho.
+        `;
+
+    }
+
+
+    else if(noteName === "Computer Memory"){
+
+        text.innerHTML = `
+        <b>Computer Memory</b><br><br>
+
+        Computer memory ka use data aur
+        instructions store karne ke liye hota hai.
+
+        <br><br>
+
+        <b>Primary Memory</b><br>
+        RAM aur ROM primary memory ke examples hain.
+
+        <br><br>
+
+        <b>Secondary Memory</b><br>
+        Hard Disk, SSD, Pen Drive etc.
+        secondary storage ke examples hain.
+        `;
+
+    }
+
+
+    else if(noteName === "BCA Maths - Limits"){
+
+        text.innerHTML = `
+        <b>Limits</b><br><br>
+
+        Limit mathematics ka ek important concept hai.
+
+        <br><br>
+
+        Example:<br>
+
+        lim x→a f(x)
+
+        <br><br>
+
+        Yahan tum apne complete
+        BCA Mathematics notes add kar sakte ho.
+        `;
+
+    }
+
+
+    else if(noteName === "MS Word One Shot"){
+
+        text.innerHTML = `
+        <b>MS Word</b><br><br>
+
+        MS Word ek word processing software hai.
+
+        <br><br>
+
+        Important tabs:
+
+        <br>
+        • Home<br>
+        • Insert<br>
+        • Design<br>
+        • Layout<br>
+        • References<br>
+        • Mailings<br>
+        • Review<br>
+        • View
+        `;
+
+    }
+
+
+    modal.style.display = "flex";
+
+}
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeModal(){
+
+    document.getElementById("noteModal")
+    .style.display = "none";
+
+}
+
+
+/* =========================
+   CLOSE MODAL OUTSIDE
+========================= */
+
+window.onclick = function(event){
+
+    const modal =
+    document.getElementById("noteModal");
+
+    if(event.target === modal){
+
+        modal.style.display = "none";
+
+    }
+
+};
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+function sendMessage(){
+
+    const name =
+    document.getElementById("name").value;
+
+    const email =
+    document.getElementById("email").value;
+
+    const message =
+    document.getElementById("message").value;
+
+
+    if(name === "" ||
+       email === "" ||
+       message === ""){
+
+        alert(
+            "⚠️ Please fill all fields."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "✅ Thank you " +
+        name +
+        "! Your message has been received."
+    );
+
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+
+}
+
+</script>
+
+</body>
+</html>         
